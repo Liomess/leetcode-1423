@@ -1,0 +1,10 @@
+class Solution:
+    def maxScore(self, cardPoints: List[int], k: int) -> int:
+        def solve(self,arr,n,i,kl,k):
+            if kl==k:
+                return 0
+            left=arr[i]+solve(self,arr,n,i+1,kl+1,k)
+            right=arr[n-1-(kl-i)]+solve(self,arr,n,i,kl+1,k)
+            return max(left,right)
+        n=len(cardPoints)
+        return solve(self,cardPoints,n,0,0,k)
